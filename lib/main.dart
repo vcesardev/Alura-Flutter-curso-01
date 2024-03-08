@@ -121,44 +121,8 @@ class _TaskState extends State<Task> {
                         ),
                       ),
                       Container(
-                          child: Row(
-                        children: [
-                          Icon(
-                            Icons.star,
-                            size: 15,
-                            color: (widget.difficulty >= 1
-                                ? Colors.blue
-                                : Colors.blue[100]),
-                          ),
-                          Icon(
-                            Icons.star,
-                            size: 15,
-                            color: (widget.difficulty >= 2
-                                ? Colors.blue
-                                : Colors.blue[100]),
-                          ),
-                          Icon(
-                            Icons.star,
-                            size: 15,
-                            color: (widget.difficulty >= 3
-                                ? Colors.blue
-                                : Colors.blue[100]),
-                          ),
-                          Icon(
-                            Icons.star,
-                            size: 15,
-                            color: (widget.difficulty >= 4
-                                ? Colors.blue
-                                : Colors.blue[100]),
-                          ),
-                          Icon(
-                            Icons.star,
-                            size: 15,
-                            color: (widget.difficulty >= 5
-                                ? Colors.blue
-                                : Colors.blue[100]),
-                          ),
-                        ],
+                          child: DifficultyData(
+                        difficulty: widget.difficulty,
                       ))
                     ],
                   ),
@@ -222,86 +186,41 @@ class _TaskState extends State<Task> {
   }
 }
 
-// class Task extends StatelessWidget {
-//   final String title;
-//   final String pictureUrl;
-//   const Task({required this.title, required this.pictureUrl, Key? key})
-//       : super(key: key);
+class DifficultyData extends StatelessWidget {
+  final int difficulty;
+  const DifficultyData({required this.difficulty, key}) : super(key: key);
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//         color: Colors.amber[100],
-//         child: Column(
-//           children: [
-//             Container(
-//               color: Colors.white,
-//               height: 100,
-//               padding: const EdgeInsets.all(8),
-//               child: Row(
-//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                 crossAxisAlignment: CrossAxisAlignment.center,
-//                 children: [
-//                   Container(
-//                     width: 72,
-//                     color: Colors.black12,
-//                     height: 100,
-//                     child: Image.network(
-//                       pictureUrl,
-//                       fit: BoxFit.cover,
-//                       width: 60,
-//                       height: 80,
-//                     ),
-//                   ),
-//                   Column(
-//                     mainAxisAlignment: MainAxisAlignment.center,
-//                     children: [
-//                       Container(
-//                         width: 150,
-//                         child: Text(
-//                           title,
-//                           textAlign: TextAlign.center,
-//                           style: TextStyle(
-//                               fontSize: 18, overflow: TextOverflow.ellipsis),
-//                         ),
-//                       ),
-//                       Text("Estrelas")
-//                     ],
-//                   ),
-//                   Container(
-//                     width: 100,
-//                     height: 70,
-//                     child: ElevatedButton(
-//                         onPressed: () {},
-//                         style: ButtonStyle(
-//                           backgroundColor:
-//                               MaterialStateProperty.all<Color>(Colors.blue),
-//                           shape: MaterialStatePropertyAll(
-//                               RoundedRectangleBorder(
-//                                   borderRadius: BorderRadius.circular(2))),
-//                         ),
-//                         child: const Column(
-//                           mainAxisAlignment: MainAxisAlignment.center,
-//                           children: [
-//                             Icon(
-//                               Icons.arrow_drop_up,
-//                               color: Colors.white,
-//                             ),
-//                             Text("lvl 12",
-//                                 style: TextStyle(color: Colors.white))
-//                           ],
-//                         )),
-//                   )
-//                 ],
-//               ),
-//             ),
-//             Container(
-//               color: Colors.blue,
-//               height: 40,
-//               width: 400,
-//               child: Text("Oi"),
-//             ),
-//           ],
-//         ));
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Icon(
+          Icons.star,
+          size: 15,
+          color: (difficulty >= 1 ? Colors.blue : Colors.blue[100]),
+        ),
+        Icon(
+          Icons.star,
+          size: 15,
+          color: (difficulty >= 2 ? Colors.blue : Colors.blue[100]),
+        ),
+        Icon(
+          Icons.star,
+          size: 15,
+          color: (difficulty >= 3 ? Colors.blue : Colors.blue[100]),
+        ),
+        Icon(
+          Icons.star,
+          size: 15,
+          color: (difficulty >= 4 ? Colors.blue : Colors.blue[100]),
+        ),
+        Icon(
+          Icons.star,
+          size: 15,
+          color: (difficulty >= 5 ? Colors.blue : Colors.blue[100]),
+        ),
+      ],
+    );
+    ;
+  }
+}
