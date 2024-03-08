@@ -51,12 +51,6 @@ class MyApp extends StatelessWidget {
               ),
             ],
           ),
-          floatingActionButton: ElevatedButton(
-            child: Text("Oi"),
-            onPressed: () {
-              print("Apertei");
-            },
-          ),
         ));
   }
 }
